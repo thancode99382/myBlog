@@ -25,12 +25,12 @@ export default function Home() {
           </div>
           <div className="grid gap-4 col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
             <img
-              src="https://i.pinimg.com/736x/ea/f2/ce/eaf2cea3b73a68a3874ed50ad12d86df.jpg"
+              src="https://i.pinimg.com/736x/86/4f/e7/864fe77e47a4c71d58559e9ae62015f5.jpg"
               className="w-full h-60 object-cover rounded-lg sm:h-52 sm:col-span-2 lg:col-span-full"
               alt=""
             />
             <img
-              src="https://i.pinimg.com/564x/87/df/d1/87dfd13981dd38f27a3e82416eb63c6d.jpg"
+              src="https://i.pinimg.com/736x/41/61/65/416165808a266df5b7fc3895b872276f.jpg"
               alt=""
               className="hidden w-full h-52 object-cover rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2 lg:h-72"
             />

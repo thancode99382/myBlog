@@ -30,7 +30,7 @@ const CardBlog: React.FC<CardBlogProps> = ({
       <div className="relative hover:-translate-y-2 duration-500 transition-all flex max-w-[24rem] flex-col  h-[415px]  rounded-xl bg-white w-[350px]  bg-clip-border text-gray-700 ">
         <div className="relative m-0  text-gray-700 bg-transparent rounded-xl shadow-none bg-clip-border">
           <img
-          className="w-[350px] h-[228px]  rounded-xl"   
+          className="w-[350px] h-[228px] object-cover  rounded-xl"   
             src={urlImg}
             alt="url wrong"
           />
