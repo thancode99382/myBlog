@@ -13,7 +13,7 @@ export default function LayoutDefault({ children }:LayoutDefaultProps) {
     <div>
       <Header />
       <div className="md:flex ">
-      <div className="p-6 md:w-full order-2">{children}</div>
+      <div className="p-6 md:w-full h-full order-2">{children}</div>
         <div className="md:w-1/4 md:order-1">
           <Siderbar />
         </div>

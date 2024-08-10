@@ -60,7 +60,11 @@ export default function ViewDetail({ params }: { params: { id: string } }) {
               <div>{document.content}</div>
             </div>
           ) : (
-            <div>Loading...</div>
+            <div className="three-body h-screen">
+<div className="three-body__dot"></div>
+<div className="three-body__dot"></div>
+<div className="three-body__dot"></div>
+</div>
           )}
         </div>
       </LayoutDefault>

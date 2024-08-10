@@ -2,13 +2,14 @@
 import LayoutDefault from "@/components/layout/layoutDefault/LayoutDefault";
 import CardBlog from "@/components/news/CardBlog";
 import { db } from "@/firebase/config";
+import { Skeleton } from "@/components/ui/skeleton";
+
 import {
   collection,
   DocumentData,
   onSnapshot,
   Query,
 } from "firebase/firestore";
-
 
 import React, { useEffect, useState } from "react";
 
@@ -34,7 +35,6 @@ export default function News() {
   return (
     <div>
       <LayoutDefault>
-        
         <div className="flex flex-wrap gap-2 justify-center mt-10">
           {documents.length > 0 ? (
             documents.map((item) => (
@@ -49,7 +49,12 @@ export default function News() {
               />
             ))
           ) : (
-            <div className="font-semibold text-lg ">Thêm blog thú vị</div>
+            /* From Uiverse.io by G4b413l */ 
+<div className="three-body h-screen  ">
+<div className="three-body__dot"></div>
+<div className="three-body__dot"></div>
+<div className="three-body__dot"></div>
+</div>
           )}
         </div>
       </LayoutDefault>

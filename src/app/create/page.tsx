@@ -46,7 +46,7 @@ export default function Create() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if(values.title==""||values.description==""||values.content==""||values.urlImg==""){
+    if(values.title==""||values.description==""||values.content==""){
       notifyWarning()
       return
     } 
