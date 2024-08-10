@@ -51,7 +51,7 @@ export default function ViewDetail({ params }: { params: { id: string } }) {
   return (
     <div>
       <LayoutDefault>
-        <div className="flex mx-36">
+        <div className="flex md:mx-36">
           {error ? (
             <div className="text-red-500">{error}</div>
           ) : document ? (

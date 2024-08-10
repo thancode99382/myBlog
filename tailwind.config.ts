@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss"
 const { fontFamily } = require("tailwindcss/defaultTheme")
- 
+import lineClamp from '@tailwindcss/line-clamp';
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -8,6 +9,8 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./public/index.html",
 	],
   prefix: "",
   theme: {
@@ -78,7 +81,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), lineClamp,],
 } satisfies Config
 
 export default config

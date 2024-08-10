@@ -30,13 +30,13 @@ export default function Home() {
               alt=""
             />
             <img
-              src="https://i.pinimg.com/564x/c8/c0/25/c8c02530ebb2f21782cea7ca5e190e86.jpg"
+              src="https://i.pinimg.com/564x/87/df/d1/87dfd13981dd38f27a3e82416eb63c6d.jpg"
               alt=""
               className="hidden w-full h-52 object-cover rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2 lg:h-72"
             />
 
             <img
-              src="https://i.pinimg.com/736x/9e/7d/fe/9e7dfe18beb3dd5e944fd9f9545480ad.jpg"
+              src="https://i.pinimg.com/originals/37/2e/fa/372efafbf473b78f79f47b87bbb162fe.jpg"
               alt=""
               className="hidden w-full h-52 object-cover rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-72"
               loading="lazy"

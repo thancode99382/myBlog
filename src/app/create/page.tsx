@@ -20,6 +20,8 @@ import { Input } from "@/components/ui/input";
 import LayoutDefault from "@/components/layout/layoutDefault/LayoutDefault";
 import React from "react";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   title: z.string(),
@@ -29,6 +31,10 @@ const formSchema = z.object({
 });
 
 export default function Create() {
+  const router = useRouter();
+  const notify = () => toast("Bạn đã tạo thành công");
+  const notifyWarning = () => toast("Nội dung của bạn không đầy đủ ");
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -40,7 +46,13 @@ export default function Create() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if(values.title==""||values.description==""||values.content==""||values.urlImg==""){
+      notifyWarning()
+      return
+    } 
     try {
+
+      
       const docRef = await addDoc(collection(db, "blogs"), {
         title: values.title,
         description: values.description,
@@ -49,6 +61,8 @@ export default function Create() {
         createdAt: serverTimestamp(),
       });
       console.log("result from database" + docRef);
+      notify()
+      router.push("/news")
     } catch (error) {
       console.error("Error adding document: ", error);
     }
