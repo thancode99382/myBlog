@@ -142,7 +142,7 @@ export default function Create() {
                     <FormItem>
                       <FormLabel>Link ảnh cho bài blog</FormLabel>
                       <FormControl>
-                        <Input placeholder="Url" {...field} />
+                        <Input placeholder="Dán url ảnh vào" {...field} />
                       </FormControl>
 
                       <FormMessage />
