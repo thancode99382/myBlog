@@ -27,20 +27,20 @@ const CardBlog: React.FC<CardBlogProps> = ({
     <div>
       
     <Link href={`/news/${id}`}>
-      <div className="relative hover:-translate-y-2 duration-500 transition-all flex max-w-[24rem] flex-col  h-[415px]  rounded-xl bg-white w-[350px]  bg-clip-border text-gray-700 ">
+      <div className="relative hover:-translate-y-2 duration-500 transition-all flex max-w-[24rem] flex-col  h-[415px]  rounded-xl bg-white w-[328px]  bg-clip-border text-gray-700 ">
         <div className="relative m-0  text-gray-700 bg-transparent rounded-xl shadow-none bg-clip-border">
           {urlImg && <img
-          className="w-[350px] h-[228px] object-cover  rounded-xl"   
+          className="w-[328px] h-[185px] object-cover  rounded-xl"   
             src={urlImg}
             alt="url wrong"
           />}
         </div>
         <div className="py-6 pr-6  h-[152px]  max-w-sm rounded overflow-hidden   bg-white">
           <div>
-          <h4 className=" font-sans text-2xl  font-semibold  tracking-normal text-blue-gray-900 line-clamp-1">
+          <h4 className=" font-sans text-base  font-semibold  tracking-normal text-blue-gray-900 line-clamp-1">
             {title}
           </h4>
-          <p className=" mt-3 font-sans text-xl  font-normal  text-gray-700 line-clamp-2">
+          <p className=" mt-3 font-sans text-sm  font-normal  text-gray-700 line-clamp-2">
             {description}
           </p>
           </div>

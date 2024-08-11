@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "SevenLove",
     images: [
       {
-        url: "https://i.pinimg.com/736x/e9/a1/ff/e9a1ffa5529238b9a4ec9ab462b9bb19.jpg", // Path to your Open Graph image
+        url: "https://i.pinimg.com/736x/f0/19/56/f01956faa4135f0b30cb9a90f31bb662.jpg", // Path to your Open Graph image
         width: 1200,
         height: 630,
         alt: "SevenLove Open Graph Image",
