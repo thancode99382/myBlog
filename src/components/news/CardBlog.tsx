@@ -27,8 +27,8 @@ const CardBlog: React.FC<CardBlogProps> = ({
     <div>
       
     <Link href={`/news/${id}`}>
-      <div className="relative hover:-translate-y-2 duration-500 transition-all flex max-w-[24rem] flex-col  h-[415px]  rounded-xl bg-white w-[328px]  bg-clip-border text-gray-700 ">
-        <div className="relative m-0  text-gray-700 bg-transparent rounded-xl shadow-none bg-clip-border">
+      <div className="relative hover:-translate-y-2 duration-500  transition-all flex max-w-[24rem] flex-col  h-[337px]  rounded-xl bg-white w-[328px]   text-gray-700 ">
+        <div className="relative   text-gray-700 bg-transparent rounded-xl shadow-none bg-clip-border">
           {urlImg && <img
           className="w-[328px] h-[185px] object-cover  rounded-xl"   
             src={urlImg}
