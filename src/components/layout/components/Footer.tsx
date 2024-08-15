@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "@/app/icon.jpg"
+import logo from "@/app/logo.png"
 export default function Footer() {
   return (
     <div>                                                <footer className="w-full">

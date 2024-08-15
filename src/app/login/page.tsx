@@ -1,72 +1,66 @@
-// "use client"
+"use client";
 
-// import { zodResolver } from "@hookform/resolvers/zod"
-// import { useForm } from "react-hook-form"
-// import { z } from "zod"
+import { useState } from "react";
+import Login from "./login";
+import Signup from "./Signup";
 
-// import { Button } from "@/components/ui/button"
-// import {
-//   Form,
-//   FormControl,
-//   FormDescription,
-//   FormField,
-//   FormItem,
-//   FormLabel,
-//   FormMessage,
-// } from "@/components/ui/form"
-// import { Input } from "@/components/ui/input"
+export default function Page() {
+  const [translate, setTranslate] = useState(false);
 
-// // Define the schema using Zod
-// const formSchema = z.object({
-//   username: z.string().min(2, {
-//     message: "Username must be at least 2 characters.",
-//   }),
-// })
+  const handleChange = () => {
+    setTranslate(!translate);
+  };
 
-// export function ProfileForm() {
-//   // Initialize the form with useForm and zodResolver
-//   const form = useForm<z.infer<typeof formSchema>>({
-//     resolver: zodResolver(formSchema),
-//     defaultValues: {
-//       username: "",
-//     },
-//   })
-
-//   // Define the onSubmit function
-//   function onSubmit(values: z.infer<typeof formSchema>) {
-//     console.log(values)
-//     // Handle form submission
-//   }
-
-//   return (
-//     <Form {...form}>
-//       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-//         <FormField
-//           control={form.control}
-//           name="username"
-//           render={({ field }) => (
-//             <FormItem>
-//               <FormLabel>Username</FormLabel>
-//               <FormControl>
-//                 <Input placeholder="shadcn" {...field} />
-//               </FormControl>
-//               <FormDescription>
-//                 This is your public display name.
-//               </FormDescription>
-//               <FormMessage />
-//             </FormItem>
-//           )}
-//         />
-//         <Button type="submit">Submit</Button>
-//       </form>
-//     </Form>
-//  
-
-export default function page() {
   return (
-    <div>
-      login
+    <div className="relative flex justify-center items-center w-full  h-screen">
+      <div className="w-full  z-0 overflow-hidden ">
+        <Login translate={translate} />
+      </div>
+
+      <div className="w-full  z-0 overflow-hidden ">
+        <Signup translate={translate} />
+      </div>
+
+      <div
+        className={` text-white  flex justify-center  overflow-hidden items-center  absolute bg-[#533BAD]  h-screen w-1/2 left-0  transition-all duration-700 ease-in-out ${
+          translate
+            ? "translate-x-full  rounded-l-[200px]"
+            : "translate-x-0  rounded-r-[200px]"
+        }   `}
+      >
+        <div className=" absolute  inset-0 z-50 flex justify-center   items-center">
+        
+          <div className={ `flex gap-6 flex-col justify-center  ${translate?"translate-x-[1000px]":""}   absolute transition-all duration-700 ease-in-out  items-center`}>
+            <div className="font-bold md:text-6xl text-2xl px-4"> Chào mừng trở lại! </div>
+            <div className="font-light px-4">
+              
+              Nhập thông tin chi tiết để sử dụng các tính năng{" "}
+            </div>
+            <button
+              onClick={handleChange}
+              className="border px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all ease-in-out duration-200 "
+            >
+              {" "}
+              Đăng nhập nào{" "}
+            </button>
+          </div>{" "}
+                {/* đăng kí */}
+          <div className={ `flex gap-6 flex-col justify-center ${translate?"":"-translate-x-[1000px]"}    absolute transition-all duration-700 ease-in-out  items-center`}>
+            <div className="font-bold md:text-6xl text-2xl px-4"> Xin chào! </div>
+            <div className="md:font-light px-4">
+              
+              Nhập thông tin chi tiết để sử dụng các tính năng{" "}
+            </div>
+            <button
+              onClick={handleChange}
+              className="border px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all ease-in-out duration-200 "
+            >
+              {" "}
+              Đăng kí nào{" "}
+            </button>
+          </div>{" "}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
- 

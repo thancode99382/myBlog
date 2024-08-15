@@ -1,6 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button";
-import logo from "@/app/icon.jpg";
+import logo from "@/app/logo.png";
 import {
   Disclosure,
   DisclosureButton,
@@ -96,9 +96,9 @@ export default function Example() {
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
                   <img
-                    alt=""
-                    src="https://scontent.fdad3-1.fna.fbcdn.net/v/t39.30808-6/328461887_1269275310654863_4648398611609775212_n.jpg?stp=dst-jpg_p206x206&_nc_cat=108&ccb=1-7&_nc_sid=fe5ecc&_nc_ohc=NnBLx-OPo0QQ7kNvgHb1v8Q&_nc_ht=scontent.fdad3-1.fna&oh=00_AYBh020G7LNLcv-Qo1gVz8uA4BeFmBgXiZ12NHcuqzo-dQ&oe=66BBF13F"
-                    className="h-10 w-10 rounded-lg"
+                    alt="sds"
+                    src="https://png.pngtree.com/png-clipart/20191122/original/pngtree-user-icon-isolated-on-abstract-background-png-image_5192004.jpg"
+                    className="h-10 w-10 rounded-lg object-cover"
                   />
                 </MenuButton>
               </div>
