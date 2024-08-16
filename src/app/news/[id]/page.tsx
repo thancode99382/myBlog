@@ -8,6 +8,7 @@ interface Blog {
   title: string;
   content: string;
   id: string;
+  urlImg:string
   [key: string]: any;
 }
 
@@ -57,6 +58,7 @@ export default function ViewDetail({ params }: { params: { id: string } }) {
           ) : document ? (
             <div>
               <div className="mb-6 font-bold text-2xl">{document.title}</div>
+           <img src={document.urlImg} className="rounded-2xl my-6" alt="" /> 
               <div>{document.content}</div>
             </div>
           ) : (
