@@ -13,6 +13,7 @@ import {
 
 import React, { useEffect, useState } from "react";
 
+
 export default function News() {
   const [documents, setDocuments] = useState<DocumentData[]>([]);
 
@@ -32,10 +33,13 @@ export default function News() {
     return () => unsubscribe();
   }, []);
 
+
+
   return (
     <div>
       <LayoutDefault>
         <div className="flex flex-wrap gap-2 justify-center mt-10">
+          
           {documents.length > 0 ? (
             documents.map((item) => (
               <CardBlog

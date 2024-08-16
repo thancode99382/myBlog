@@ -3,22 +3,24 @@
 import { useState } from "react";
 import Login from "./login";
 import Signup from "./Signup";
+import LayoutEmpty from "@/components/layout/layoutEmpty/LayoutEmpty";
 
 export default function Page() {
   const [translate, setTranslate] = useState(false);
-
+  const [loader, setLoader] = useState(false);
   const handleChange = () => {
     setTranslate(!translate);
   };
 
   return (
+    <LayoutEmpty>
     <div className="relative flex justify-center items-center w-full  h-screen">
-      <div className="w-full  z-0 overflow-hidden ">
-        <Login translate={translate} />
+      <div className="w-full   overflow-hidden ">
+        <Login translate={translate} setTranslate={setTranslate}   loader={loader} setLoader ={setLoader} />
       </div>
 
-      <div className="w-full  z-0 overflow-hidden ">
-        <Signup translate={translate} />
+      <div className="w-full   overflow-hidden ">
+        <Signup setTranslate={setTranslate} translate={translate}  loader={loader} setLoader ={setLoader}/>
       </div>
 
       <div
@@ -28,7 +30,7 @@ export default function Page() {
             : "translate-x-0  rounded-r-[200px]"
         }   `}
       >
-        <div className=" absolute  inset-0 z-50 flex justify-center   items-center">
+        <div className=" absolute  inset-0  flex justify-center   items-center">
         
           <div className={ `flex gap-6 flex-col justify-center  ${translate?"translate-x-[1000px]":""}   absolute transition-all duration-700 ease-in-out  items-center`}>
             <div className="font-bold md:text-6xl text-2xl px-4"> Chào mừng trở lại! </div>
@@ -62,5 +64,6 @@ export default function Page() {
         </div>
       </div>
     </div>
+    </LayoutEmpty>
   );
 }

@@ -1,4 +1,3 @@
-"use client"
 import { Button } from "@/components/ui/button";
 import logo from "@/app/logo.png";
 import {
@@ -11,22 +10,23 @@ import {
   MenuItems,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Upload } from "lucide-react";
+import { useSession } from "next-auth/react";
+
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const navigation = [
-  { name: "Trang chủ", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
-];
+import { signOut } from "next-auth/react";
+
+import { useRouter } from "next/navigation";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
+  const { data: session } = useSession();
+  console.log(session);
+  const router = useRouter();
   const notify = () => toast("Chức năng này chưa mở");
   return (
     <Disclosure as="nav" className="bg-white border ">
@@ -34,7 +34,7 @@ export default function Example() {
         <div className="relative flex h-16 items-center ">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
-            {/* <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
               <Bars3Icon
@@ -45,11 +45,11 @@ export default function Example() {
                 aria-hidden="true"
                 className="hidden h-6 w-6 group-data-[open]:block"
               />
-            </DisclosureButton> */}
+            </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center  gap-40 sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <div className="font-bold gap-4 flex items-center text-2xl">
+              <div className="font-bold gap-4 md:flex hidden items-center text-2xl">
                 <Image
                   src={logo}
                   alt="Picture of the author"
@@ -84,10 +84,18 @@ export default function Example() {
           </div>
 
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <Button className="md:flex hidden" onClick={notify} variant="outline">
-              <Upload className="mr-2 h-4 w-4" />
-              Tải lên
-            </Button>
+            {/* <Buttonlogin/> */}
+            {!session && (
+              <Button
+                className="md:flex "
+                onClick={() => {
+                  router.push("/login");
+                }}
+                variant="outline"
+              >
+                Đăng nhập
+              </Button>
+            )}
 
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
@@ -102,58 +110,50 @@ export default function Example() {
                   />
                 </MenuButton>
               </div>
-              {/* <MenuItems
+              <MenuItems
                 transition
-                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                className="absolute flex flex-col  right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
               >
                 <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
-                  >
-                    Your Profile
-                  </a>
+                  <button className=" px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100">
+                    Thông tin cá nhân
+                  </button>
                 </MenuItem>
+
                 <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
+                  <button
+                    onClick={() => signOut()}
+                    className=" text-left  px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                   >
-                    Settings
-                  </a>
+                    Đăng xuất
+                  </button>
                 </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
-                  >
-                    Sign out
-                  </a>
-                </MenuItem>
-              </MenuItems> */}
+              </MenuItems>
             </Menu>
+
+            <div> {session?.user?.name}</div>
           </div>
         </div>
       </div>
 
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? "page" : undefined}
-              className={classNames(
-                item.current
-                  ? "bg-gray-900 text-white"
-                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                "block rounded-md px-3 py-2 text-base font-medium"
-              )}
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
+          <DisclosureButton
+            className={classNames(
+              "block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+            )}
+          >
+            Thông tin người dùng
+          </DisclosureButton>
+
+          <DisclosureButton
+           onClick={() => signOut()}
+            className={classNames(
+              "block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+            )}
+          >
+            Đăng xuất
+          </DisclosureButton>
         </div>
       </DisclosurePanel>
     </Disclosure>

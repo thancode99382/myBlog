@@ -10,7 +10,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Footer from "@/components/layout/components/Footer";
-export default function Home() {
+import { getServerSession } from "next-auth";
+export default  function Home() {
+  // const session = await getServerSession();
+  //  console.log(session)
+  //  console.log("hello")
   return (
     <LayoutDefault>
       <div className="py-6 px-4 sm:p-6 md:py-10 md:px-8">

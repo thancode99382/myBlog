@@ -1,6 +1,8 @@
 import Image from "next/image";
 import logo from "@/app/logo.png"
-export default function Footer() {
+
+export default  function Footer() {
+
   return (
     <div>                                                <footer className="w-full">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
