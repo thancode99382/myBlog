@@ -20,7 +20,7 @@ const CardBlog: React.FC<CardBlogProps> = ({
   id,
   title,
   description,
-  content,
+
   urlImg,
 }) => {
   return (
